@@ -1,4 +1,4 @@
-FROM ubuntu:15.10
+FROM python:2.7.11
 MAINTAINER Koby Aharon <kobyahron@gmail.com>
 
 RUN apt-get update --fix-missing \
@@ -6,16 +6,6 @@ RUN apt-get update --fix-missing \
         libsqlite3-dev libfontconfig1-dev libicu-dev libfreetype6 libssl-dev \
         libpng-dev libjpeg-dev wget git \
   && apt-get clean all
-  
-RUN cd /tmp \
-    && wget http://python.org/ftp/python/2.7.6/Python-2.7.6.tgz \
-    && cd /tmp \    
-    && tar -xvf Python-2.7.6.tgz \
-    && cd /tmp/Python-2.7.6 \
-    && ./configure \
-    && make \
-    && make install \
-    && rm -rf Python-2.7.6*
         
 ENV PHANTOMJS_VERSION 2.1.1      
 
